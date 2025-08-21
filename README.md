@@ -49,26 +49,25 @@ cd Research_Briefs
 ```bash
 python -m venv .venv
 ```
-# Windows:
+### Windows:
 ```bash
 .\.venv\Scripts\activate
 ```
-# macOS/Linux:
+### macOS/Linux:
 source .venv/bin/activate
 ```
 3. Install requirements:
 ```bash
 pip install -r requirements.txt
 ``` 
-
 4. Create a .env (this file is ignored by git):
    ```bash
    OPENAI_API_KEY=sk-...
    SENDGRID_API_KEY=SG-...
    FROM_EMAIL=you@yourdomain.com   # must be a verified sender in SendGrid 
    ```
-
 5. Run the app:
 ```bash
 python app.py
-``` 
+```
+
