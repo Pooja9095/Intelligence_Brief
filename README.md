@@ -1,6 +1,6 @@
-# Intelligence Brief – Research Summaries
+# Intelligence Brief
 
-Ask a question about a **company** or **sector** and get a short, clean **Intelligence Brief** with sources. The app plans focused web searches, summarizes what it finds, and writes a readable brief.
+Ask a question about a company or sector and get a short, clean research summary with sources, driven by a compact, agent-orchestrated research pipeline. A planner agent derives scope, timeframe, and intent from the user query; a search agent invokes a web search tool to retrieve recent, credible sources; a ranker filters and prioritizes results by relevance, domain quality, and recency; and a writer agent produces the final brief with a clearly attributed Sources section. Responsibility is modular and delegated, tool use is isolated to the search agent, and strict structured outputs reduce cost and minimize factual error.
 
 Check it out live here: [Intelligence Brief on Hugging Face Spaces](https://huggingface.co/spaces/Pooja-Nigam/Intelligence_Brief)
 
@@ -70,4 +70,26 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+## License
 
+MIT License  
+
+Copyright (c) 2025 Pooja Nigam  
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:  
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
