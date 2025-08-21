@@ -45,25 +45,30 @@ Check it out live here: [Intelligence Brief on Hugging Face Spaces](https://hugg
 git clone https://github.com/Pooja-Nigam/Research_Briefs.git
 cd Research_Briefs
 ```
-
 2. Create & activate a venv:
 ```bash
 python -m venv .venv
+```
 # Windows:
+```bash
 .\.venv\Scripts\activate
+```
 # macOS/Linux:
-source .venv/bin/activate ```
-
+source .venv/bin/activate
+```
 3. Install requirements:
 ```bash
-pip install -r requirements.txt ```
+pip install -r requirements.txt
+``` 
 
 4. Create a .env (this file is ignored by git):
    ```bash
    OPENAI_API_KEY=sk-...
    SENDGRID_API_KEY=SG-...
-   FROM_EMAIL=you@yourdomain.com   # must be a verified sender in SendGrid ```
+   FROM_EMAIL=you@yourdomain.com   # must be a verified sender in SendGrid 
+   ```
 
 5. Run the app:
 ```bash
-python app.py ``` 
+python app.py
+``` 
