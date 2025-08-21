@@ -10,7 +10,7 @@ Check it out live here: [Intelligence Brief on Hugging Face Spaces](https://hugg
 
 - **Focused Web Research**: Builds smart search queries (company/sector, recency, intent terms like layoffs, launch, earnings).
 - **Fresh & Credible Sources**: Prefers recent links (2025 / last 30 days) and reputable domains (e.g., SEC, Reuters, Bloomberg, WSJ, FT, CNBC).
-- **Tight Summaries (≤220 words)**: Clear and factual, no fluff.
+- **Tight Summaries (≤220 words)**: Clear and factual.
 - **Brief Writer**: Turns findings into a short, friendly “Intelligence Brief” with a Sources section.
 - **Email the Brief**: Send the final brief to your inbox via SendGrid.
 - **Cost Controls**: Caps queries, concurrency, and sources to avoid surprise bills.
