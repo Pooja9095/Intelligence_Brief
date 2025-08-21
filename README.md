@@ -43,7 +43,8 @@ Check it out live here: [Intelligence Brief on Hugging Face Spaces](https://hugg
 1. Clone the repo:
 ```bash
 git clone https://github.com/Pooja-Nigam/Research_Briefs.git
-cd Research_Briefs ```
+cd Research_Briefs
+```
 
 2. Create & activate a venv:
 ```bash
