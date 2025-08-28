@@ -27,7 +27,7 @@ Check it out live here: [Intelligence Brief on Hugging Face Spaces](https://hugg
 
 - Python 3.x  
 - [Gradio](https://gradio.app/) – web UI and HF Space runtime  
-- [OpenAI API](https://platform.openai.com/) – model calls (gpt-4o-mini in code)  
+- [Groq API](https://console.groq.com/docs/quickstart) – model calls (llama-3.3-70b-versatile in code)
 - [DuckDuckGo Search](https://pypi.org/project/duckduckgo-search/) – news/text search  
 - [Pydantic](https://docs.pydantic.dev/) – typed schemas for agent outputs  
 - [python-dotenv](https://pypi.org/project/python-dotenv/) – local environment variables  
@@ -63,7 +63,7 @@ pip install -r requirements.txt
 ``` 
 4. Create a .env (this file is ignored by git):
 ```bash
-OPENAI_API_KEY=sk-...
+GROQ_API_KEY=gsk-...
 SENDGRID_API_KEY=SG-...
 FROM_EMAIL=you@yourdomain.com   # must be a verified sender in SendGrid 
 ```
