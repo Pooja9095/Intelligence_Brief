@@ -5,6 +5,11 @@ from research_manager import ResearchManager
 from emailer import send_email, build_email_html
 import re
 
+from sessions import (
+    new_session_id, add_session, get_session, increment_questions,
+    reached_limit, is_admin, ADMIN_SESSION_ID, MAX_QUESTIONS
+)
+
 # Regex for validating emails
 EMAIL_REGEX = re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63}$")
 
@@ -29,13 +34,40 @@ examples = [
 load_dotenv(override=True)
 manager = ResearchManager()
 
-# Run research and stream back results chunk by chunk
-async def run(topic: str):
+async def run(topic: str, state: dict):
+    state = state or {}
+
+    if topic.strip().lower() == "/admin":
+        state["session_id"] = ADMIN_SESSION_ID
+        yield "🛡️ Admin mode enabled for this session.", state
+        return
+
+    # 2) Ensure we have a session_id
+    session_id = state.get("session_id")
+    if session_id is None:
+        session_id = new_session_id()
+        add_session(session_id)
+        state["session_id"] = session_id
+
+    # 3) Enforce limit for non-admin sessions
+    if not is_admin(session_id):
+        if get_session(session_id) is None:
+            add_session(session_id)
+
+        if reached_limit(session_id):
+            yield f"⛔ Thanks for giving Intelligence Brief a try! You’ve reached the {MAX_QUESTIONS}-question limit for this session.", state
+            return
+        else:
+            increment_questions(session_id)
+
+    # 4) Guard for empty input
     if not topic.strip():
         yield "Please enter a topic."
         return
+
+    # 5) Execute your existing pipeline
     async for chunk in manager.run(topic):
-        yield chunk
+        yield chunk, state
 
 # Validate email + send the generated brief
 def email_brief(topic: str, last_md: str, to_email: str):
@@ -66,6 +98,8 @@ def _pick_placeholder():
 with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
     gr.Markdown("# Intelligence Brief")
     gr.Markdown("Ask about a company or an industry → get a concise research brief with sources → optional email.")
+    
+    state = gr.State({})
 
     topic = gr.Textbox(
         label="Ask a question",
@@ -81,7 +115,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
     send_btn = gr.Button("Send", visible=False)
     output = gr.Markdown(value="")
 
-    run_btn.click(fn=run, inputs=[topic], outputs=output, queue=True)
+    run_btn.click(fn=run, inputs=[topic, state], outputs=[output, state], queue=True)
     email_btn.click(lambda: [gr.update(visible=True), gr.update(visible=True)], inputs=None, outputs=[send_to, send_btn])
     send_btn.click(fn=email_brief, inputs=[topic, output, send_to], outputs=output)
 

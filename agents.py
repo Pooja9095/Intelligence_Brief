@@ -10,10 +10,10 @@ _client = None
 def get_client():
     global _client
     if _client is None:
-        api_key = os.getenv("OPENAI_API_KEY")
+        api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
-            raise RuntimeError("Missing OPENAI_API_KEY. Set it in .env or environment.")
-        _client = AsyncOpenAI(api_key=api_key)
+            raise RuntimeError("Missing GROQ_API_KEY. Set it in .env or environment.")
+        _client = AsyncOpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
         atexit.register(lambda: asyncio.get_event_loop().run_until_complete(_client.close()))
     return _client
 

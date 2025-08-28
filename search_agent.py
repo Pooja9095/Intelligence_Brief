@@ -32,7 +32,7 @@ search_agent_instance = Agent(
     name="SearchAgent",
     instructions=INSTRUCTIONS,
     tools=[WebSearchTool(max_results=10, timelimit="w", mode="news")],
-    model="gpt-4o-mini",
+    model="llama-3.3-70b-versatile",
     model_settings=ModelSettings(tool_choice="required"),
     output_type=SearchSummary,
     temperature=0.2,  # low randomness = more factual

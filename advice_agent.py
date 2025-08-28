@@ -37,7 +37,7 @@ INSTRUCTIONS = (
 advice_agent = Agent(
     name="AdviceAgent",
     instructions=INSTRUCTIONS,
-    model="gpt-4o-mini",
+    model="llama-3.3-70b-versatile",
     output_type=IntelBundle,  # always return as structured IntelBundle
     temperature=0.34,
 )

@@ -51,7 +51,7 @@ INSTRUCTIONS = (
 intel_agent = Agent(
     name="IntelAgent",
     instructions=INSTRUCTIONS,
-    model="gpt-4o-mini",
+    model="llama-3.3-70b-versatile",
     output_type=IntelBundle,
     temperature=0.34,   # slightly higher for natural tone (still controlled)
 )
